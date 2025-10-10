@@ -30,8 +30,109 @@ const searchParams = new URLSearchParams(window.location.search);
 
 
 const pride = searchParams.get("pride")
+const rand = searchParams.get("rand")
+const randColors = parseInt(searchParams.get("randc"))
 
 
+console.log(randColors)
+
+
+
+
+const randomColors = [
+    "#E40303",
+    "#FF8C00",
+    "#FFED00",
+    "#008026",
+    "#004DFF",
+    "#750787",
+    "#FFFFFF",
+    "#FFAFC8",
+    "#74D7EE",
+    "#814612",
+    "#2D2D2D",
+    "#FFF433",
+    "#FFF8E7",
+    "#9B59D0"
+];
+const progressPride = [
+    '#814612',
+    '#2D2D2D',
+    '#74D7EE',
+    '#FFAFC8',
+    '#FFFFFF',
+    '#E40303',
+    '#FF8C00',
+    '#008026',
+    '#004CFF',
+    '#732982'
+];
+const rainbow = [
+    '#E40303',
+    "#FF8C00",
+    "#FFED00",
+    '#008026',
+    '#004CFF',
+    '#732982'
+];
+const nonbinary = [
+    '#FFF433',
+    '#FFF8E7',
+    '#9B59D0',
+    '#2D2D2D'
+];
+const trans = [
+    '#5BCEFA',
+    '#F5A9B8',
+    '#FFFFFF'
+];
+const lesbian = [
+    '#D52D00',
+    '#EF7627',
+    '#FF9A56',
+    '#FFFFFF',
+    '#D162A4',
+    '#B55690',
+    '#A30262'
+];
+const bi = [
+    '#D60270',
+    '#9B4F96',
+    '#0038A8'
+];
+const pan = [
+    '#FF218C',
+    '#FFD800',
+    '#21B1FF'
+];
+const ace = [
+    '#2D2D2D',
+    '#A3A3A3',
+    '#FFFFFF',
+    '#800080'
+];
+const aromantic = [
+    '#3DA542',
+    '#A7D379',
+    '#FFFFFF',
+    '#A9A9A9',
+    '#2D2D2D'
+];
+const colorSchemes = [
+    randomColors,
+    progressPride,
+    rainbow,
+    nonbinary,
+    trans,
+    lesbian,
+    bi,
+    pan,
+    ace,
+    aromantic
+];
+
+
+        
 // Function to draw the matrix effect
 function drawMatrix() {
     // Set a semi-transparent black background
@@ -52,270 +153,289 @@ function drawMatrix() {
         
 
         currentrow = Math.floor((position / 20));
-        
+
         if (pride == "1") {
             if (currentrow <= (rows/6)) {
                 if ((index <= (stripewidth + currentrow - 2)) & (index >= currentrow - 1)) {
-                    ctx.fillStyle = '#814612';
+                    ctx.fillStyle = progressPride[0];
                 }
                 else if ((index <= (stripewidth + currentrow - 2 + stripewidth)) & (index >= currentrow - 2 + stripewidth)) {
-                    ctx.fillStyle = '#2D2D2D';
+                    ctx.fillStyle = progressPride[1];
                 }
                 else if ((index <= (stripewidth + currentrow - 1 - stripewidth)) & (index >= currentrow - 1 - stripewidth)) {
-                    ctx.fillStyle = '#74D7EE';
+                    ctx.fillStyle = progressPride[2];
                 }
                 else if ((index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth)) & (index >= currentrow - 1 - stripewidth - stripewidth)) {
-                    ctx.fillStyle = '#FFAFC8';
+                    ctx.fillStyle = progressPride[3];
                 }
                 else if (index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth - stripewidth)) {
-                    ctx.fillStyle = '#FFFFFF';
+                    ctx.fillStyle = progressPride[4];
                 }
                 else {
-                    ctx.fillStyle = '#E40303';
+                    ctx.fillStyle = progressPride[5];
                 }
             }
             else if (currentrow <= (rows/6)*2) {
                 if ((index <= (stripewidth + currentrow - 2)) & (index >= currentrow - 1)) {
-                    ctx.fillStyle = '#814612';
+                    ctx.fillStyle = progressPride[0];
                 }
                 else if ((index <= (stripewidth + currentrow - 2 + stripewidth)) & (index >= currentrow - 2 + stripewidth)) {
-                    ctx.fillStyle = '#2D2D2D';
+                    ctx.fillStyle = progressPride[1];
                 }
                 else if ((index <= (stripewidth + currentrow - 1 - stripewidth)) & (index >= currentrow - 1 - stripewidth)) {
-                    ctx.fillStyle = '#74D7EE';
+                    ctx.fillStyle = progressPride[2];
                 }
                 else if ((index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth)) & (index >= currentrow - 1 - stripewidth - stripewidth)) {
-                    ctx.fillStyle = '#FFAFC8';
+                    ctx.fillStyle = progressPride[3];
                 }
                 else if (index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth - stripewidth)) {
-                    ctx.fillStyle = '#FFFFFF';
+                    ctx.fillStyle = progressPride[4];
                 }
                 else {
-                    ctx.fillStyle = '#FF8C00';
+                    ctx.fillStyle = progressPride[6];
                 }
             }
             else if (currentrow <= (rows/6)*3) {
                 if ((index <= (stripewidth + currentrow - 2)) & (index >= currentrow - 1)) {
-                    ctx.fillStyle = '#814612';
-                }
-                else if ((index <= (stripewidth + currentrow - 1 - stripewidth)) & (index >= currentrow - 1 - stripewidth)) {
-                    ctx.fillStyle = '#74D7EE';
+                    ctx.fillStyle = progressPride[0];
                 }
                 else if ((index <= (stripewidth + currentrow - 2 + stripewidth)) & (index >= currentrow - 2 + stripewidth)) {
-                    ctx.fillStyle = '#2D2D2D';
+                    ctx.fillStyle = progressPride[1];
+                }
+                else if ((index <= (stripewidth + currentrow - 1 - stripewidth)) & (index >= currentrow - 1 - stripewidth)) {
+                    ctx.fillStyle = progressPride[2];
                 }
                 else if ((index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth)) & (index >= currentrow - 1 - stripewidth - stripewidth)) {
-                    ctx.fillStyle = '#FFAFC8';
+                    ctx.fillStyle = progressPride[3];
                 }
                 else if (index <= (stripewidth + currentrow - 1 - stripewidth - stripewidth - stripewidth)) {
-                    ctx.fillStyle = '#FFFFFF';
+                    ctx.fillStyle = progressPride[4];
                 }
                 else {
-                    ctx.fillStyle = '#FFED00';
+                    ctx.fillStyle = progressPride[7];
                 }
             }
             else if (currentrow <= (rows/6)*4) {
                 if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
-                    ctx.fillStyle = '#814612';
+                    ctx.fillStyle = progressPride[0];
                 }
                 else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
-                    ctx.fillStyle = '#2D2D2D';
+                    ctx.fillStyle = progressPride[1];
                 }
                 else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
-                    ctx.fillStyle = '#74D7EE';
+                    ctx.fillStyle = progressPride[2];
                 }
                 else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
-                    ctx.fillStyle = '#FFAFC8';
+                    ctx.fillStyle = progressPride[3];
                 }
                 else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
-                    ctx.fillStyle = '#FFFFFF';
+                    ctx.fillStyle = progressPride[4];
                 }
                 else {
-                    ctx.fillStyle = '#008026';
+                    ctx.fillStyle = progressPride[8];
                 }
             }
             else if (currentrow <= (rows/6)*5) {
                 if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
-                    ctx.fillStyle = '#814612';
+                    ctx.fillStyle = progressPride[0];
                 }
                 else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
-                    ctx.fillStyle = '#2D2D2D';
+                    ctx.fillStyle = progressPride[1];
                 }
                 else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
-                    ctx.fillStyle = '#74D7EE';
+                    ctx.fillStyle = progressPride[2];
                 }
                 else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
-                    ctx.fillStyle = '#FFAFC8';
+                    ctx.fillStyle = progressPride[3];
                 }
                 else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
-                    ctx.fillStyle = '#FFFFFF';
+                    ctx.fillStyle = progressPride[4];
                 }
                 else {
-                    ctx.fillStyle = '#004CFF';
+                    ctx.fillStyle = progressPride[9];
                 }
             }
-            else if (currentrow <= (rows/6)*6) {
+            else if (currentrow > (rows/6)*5) {
                 if ((index <= (stripewidth + (rows-currentrow) - 1)) & (index >= (rows-currentrow))) {
-                    ctx.fillStyle = '#814612';
+                    ctx.fillStyle = progressPride[0];
                 }
                 else if ((index <= (stripewidth + (rows-currentrow) - 1 + stripewidth)) & (index >= (rows-currentrow) + stripewidth)) {
-                    ctx.fillStyle = '#2D2D2D';
+                    ctx.fillStyle = progressPride[1];
                 }
                 else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth)) & (index >= (rows-currentrow) - stripewidth)) {
-                    ctx.fillStyle = '#74D7EE';
+                    ctx.fillStyle = progressPride[2];
                 }
                 else if ((index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth)) & (index >= (rows-currentrow) - stripewidth - stripewidth)) {
-                    ctx.fillStyle = '#FFAFC8';
+                    ctx.fillStyle = progressPride[3];
                 }
                 else if (index <= (stripewidth + (rows-currentrow) - 1 - stripewidth - stripewidth - stripewidth)) {
-                    ctx.fillStyle = '#FFFFFF';
+                    ctx.fillStyle = progressPride[4];
                 }
                 else {
-                    ctx.fillStyle = '#732982';
+                    ctx.fillStyle = progressPride[1];
                 }
             }
         }
         
-        
+
         else if (pride == "2") {
             if (currentrow <= (rows/6)) {
-                ctx.fillStyle = '#E40303';
+                ctx.fillStyle = rainbow[0];
             }
             else if (currentrow <= (rows/6)*2) {
-                ctx.fillStyle = '#FF8C00';
+                ctx.fillStyle = rainbow[1];
             }
             else if (currentrow <= (rows/6)*3) {
-                ctx.fillStyle = '#FFED00';
+                ctx.fillStyle = rainbow[2];
             }
             else if (currentrow <= (rows/6)*4) {
-                ctx.fillStyle = '#008026';
+                ctx.fillStyle = rainbow[3];
             }
             else if (currentrow <= (rows/6)*5) {
-                ctx.fillStyle = '#004CFF';
+                ctx.fillStyle = rainbow[4];
             }
-            else if (currentrow <= (rows/6)*6) {
-                ctx.fillStyle = '#732982';
+            else if (currentrow > (rows/6)*5) {
+                ctx.fillStyle = rainbow[5];
             }
         }
 
 
         else if (pride == "3") {
+
             if (currentrow <= (rows/4)) {
-                ctx.fillStyle = '#FFF433';
+                ctx.fillStyle = nonbinary[0];
             }
             else if (currentrow <= (rows/4)*2) {
-                ctx.fillStyle = '#FFF8E7';
+                ctx.fillStyle = nonbinary[1];
             }
             else if (currentrow <= (rows/4)*3) {
-                ctx.fillStyle = '#9B59D0';
+                ctx.fillStyle = nonbinary[2];
             }
-            else if (currentrow <= (rows/4)*4) {
-                ctx.fillStyle = '#2D2D2D';
+            else if (currentrow > (rows/4)*3) {
+                ctx.fillStyle = nonbinary[3];
             }
         }
 
 
         else if (pride == "4") {
+
             if (currentrow <= (rows/5)) {
-                ctx.fillStyle = '#5BCEFA';
+                ctx.fillStyle = trans[0];
             }
             else if (currentrow <= (rows/5)*2) {
-                ctx.fillStyle = '#F5A9B8';
+                ctx.fillStyle = trans[1];
             }
             else if (currentrow <= (rows/5)*3) {
-                ctx.fillStyle = '#FFFFFF';
+                ctx.fillStyle = trans[2];
             }
             else if (currentrow <= (rows/5)*4) {
-                ctx.fillStyle = '#F5A9B8';
+                ctx.fillStyle = trans[1];
             }
-            else if (currentrow <= (rows/5)*5) {
-                ctx.fillStyle = '#5BCEFA';
+            else if (currentrow > (rows/5)*4) {
+                ctx.fillStyle = trans[0];
             }
         }
 
 
         else if (pride == "5") {
             if (currentrow <= (rows/7)) {
-                ctx.fillStyle = '#D52D00';
+                ctx.fillStyle = lesbian[0];
             }
             else if (currentrow <= (rows/7)*2) {
-                ctx.fillStyle = '#EF7627';
+                ctx.fillStyle = lesbian[1];
             }
             else if (currentrow <= (rows/7)*3) {
-                ctx.fillStyle = '#FF9A56';
+                ctx.fillStyle = lesbian[2];
             }
             else if (currentrow <= (rows/7)*4) {
-                ctx.fillStyle = '#FFFFFF';
+                ctx.fillStyle = lesbian[3];
             }
             else if (currentrow <= (rows/7)*5) {
-                ctx.fillStyle = '#D162A4';
+                ctx.fillStyle = lesbian[4];
             }
             else if (currentrow <= (rows/7)*6) {
-                ctx.fillStyle = '#B55690';
+                ctx.fillStyle = lesbian[5];
             }
-            else if (currentrow <= (rows/7)*7) {
-                ctx.fillStyle = '#A30262';
+            else if (currentrow > (rows/7)*6) {
+                ctx.fillStyle = lesbian[6];
             }
         }
 
 
         else if (pride == "6") {
             if (currentrow <= (rows/5)*2) {
-                ctx.fillStyle = '#D60270';
+                ctx.fillStyle = bi[0];
             }
             else if (currentrow <= (rows/5)*3) {
-                ctx.fillStyle = '#9B4F96';
+                ctx.fillStyle = bi[1];
             }
-            else if (currentrow <= (rows/5)*5) {
-                ctx.fillStyle = '#0038A8';
+            else if (currentrow > (rows/5)*3) {
+                ctx.fillStyle = bi[2];
             }
         }
 
 
         else if (pride == "7") {
             if (currentrow <= (rows/3)) {
-                ctx.fillStyle = '#FF218C';
+                ctx.fillStyle = pan[0];
             }
             else if (currentrow <= (rows/3)*2) {
-                ctx.fillStyle = '#FFD800';
+                ctx.fillStyle = pan[1];
             }
-            else if (currentrow <= (rows/3)*3) {
-                ctx.fillStyle = '#21B1FF';
+            else if (currentrow > (rows/3)*2) {
+                ctx.fillStyle = pan[2];
             }
         }
 
 
         else if (pride == "8") {
             if (currentrow <= (rows/4)) {
-                ctx.fillStyle = '#2D2D2D';
+                ctx.fillStyle = ace[0];
             }
             else if (currentrow <= (rows/4)*2) {
-                ctx.fillStyle = '#A3A3A3';
+                ctx.fillStyle = ace[1];
             }
             else if (currentrow <= (rows/4)*3) {
-                ctx.fillStyle = '#FFFFFF';
+                ctx.fillStyle = ace[2];
             }
-            else if (currentrow <= (rows/4)*4) {
-                ctx.fillStyle = '#800080';
+            else if (currentrow > (rows/4)*3) {
+                ctx.fillStyle = ace[3];
             }
         }
 
 
         else if (pride == "9") {
             if (currentrow <= (rows/5)) {
-                ctx.fillStyle = '#3DA542';
+                ctx.fillStyle = aromantic[0];
             }
             else if (currentrow <= (rows/5)*2) {
-                ctx.fillStyle = '#A7D379';
+                ctx.fillStyle = aromantic[1];
             }
             else if (currentrow <= (rows/5)*3) {
-                ctx.fillStyle = '#FFFFFF';
+                ctx.fillStyle = aromantic[2];
             }
             else if (currentrow <= (rows/5)*4) {
-                ctx.fillStyle = '#A9A9A9';
+                ctx.fillStyle = aromantic[3];
             }
-            else if (currentrow <= (rows/5)*6) {
-                ctx.fillStyle = '#2D2D2D';
+            else if (currentrow > (rows/5)*4) {
+                ctx.fillStyle = aromantic[4];
+            }
+        }
+
+
+        else if (rand == "1") {
+            if (!randColors) {
+                const randomColorSchemeIndex = Math.floor(Math.random() * colorSchemes.length);
+                var colorScheme = colorSchemes[randomColorSchemeIndex]
+                var randomColorIndex = Math.floor(Math.random() * colorScheme.length);
+                var randomColor = colorScheme[randomColorIndex];
+                ctx.fillStyle = randomColor;
+            }
+            else {
+                var colorScheme = colorSchemes[randColors]
+                var randomColorIndex = Math.floor(Math.random() * colorScheme.length);
+                var randomColor = colorScheme[randomColorIndex];
+                ctx.fillStyle = randomColor;
             }
         }
 
@@ -324,7 +444,8 @@ function drawMatrix() {
 
 
 
-        // Display the character at the current position\
+        // Display the character at the current position]
+        
         ctx.fillText(char, index * 20, position);
 
 
@@ -341,7 +462,8 @@ function drawMatrix() {
 // Function to continuously update and render the animation
 function animate() {
     drawMatrix();
-    setTimeout(animate, (1000/40)); // Adjust the delay (in milliseconds) for desired speed
+    setTimeout(animate, (1000/20)); 
+    // Adjust the delay (in milliseconds) for desired speed
 }
 
 // Start the animation
