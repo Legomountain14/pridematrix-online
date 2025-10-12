@@ -6,7 +6,8 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const columns = Math.floor((canvas.width / 20)+1); // Number of columns
+const columns = Math.floor((canvas.width / 20)+1); 
+// Number of columns
 const rows = Math.floor((canvas.height / 20)); 
 const rowsPX = rows*20
 
@@ -32,9 +33,18 @@ const searchParams = new URLSearchParams(window.location.search);
 const pride = searchParams.get("pride")
 const rand = searchParams.get("rand")
 const randColors = parseInt(searchParams.get("randc"))
+customColor = searchParams.get("hex")
+console.log(searchParams.get("hex"))
 
 
-console.log(randColors)
+
+customColor = '#' + searchParams.get("hex")
+
+
+
+
+console.log(customColor)
+
 
 
 
@@ -136,11 +146,14 @@ const colorSchemes = [
 // Function to draw the matrix effect
 function drawMatrix() {
     // Set a semi-transparent black background
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Set the text color
     ctx.fillStyle = '#00ff00';
+    if (customColor) {
+        ctx.fillStyle = customColor;
+    }
     ctx.font = 'bold 15px monospace';
     
     
@@ -423,7 +436,10 @@ function drawMatrix() {
         }
 
 
-        else if (rand == "1") {
+
+
+
+        else if (rand == "1" || randColors) {
             if (!randColors) {
                 const randomColorSchemeIndex = Math.floor(Math.random() * colorSchemes.length);
                 var colorScheme = colorSchemes[randomColorSchemeIndex]
@@ -445,9 +461,7 @@ function drawMatrix() {
 
 
         // Display the character at the current position]
-        
         ctx.fillText(char, index * 20, position);
-
 
         // Move the position down
         columnPositions[index] += 20;
@@ -468,4 +482,3 @@ function animate() {
 
 // Start the animation
 animate();
-
