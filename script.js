@@ -35,7 +35,7 @@ const rand = searchParams.get("rand")
 const randColors = parseInt(searchParams.get("randc"))
 customColor = searchParams.get("hex")
 console.log(searchParams.get("hex"))
-
+const showCursor = searchParams.get("cursor")
 
 
 customColor = '#' + searchParams.get("hex")
@@ -45,7 +45,15 @@ customColor = '#' + searchParams.get("hex")
 
 console.log(customColor)
 
+var element = document.getElementById("html");
 
+if (showCursor == "1") {
+    element.classList.remove("noCursor");
+}
+else {
+    element.classList.add("noCursor");
+}
+    
 
 
 
@@ -128,6 +136,40 @@ const aromantic = [
     '#A9A9A9',
     '#2D2D2D'
 ];
+const agender = [
+    '#2D2D2D',
+    '#BCC4C7',
+    '#FFFFFF',
+    '#B7F684'
+];
+const aroace = [
+    '#E28C00',
+    '#ECCD00',
+    '#FFFFFF',
+    '#62AEDC',
+    '#203856'
+];
+const cupioromantic = [
+    '#FCA9A3',
+    '#FDC5C0',
+    '#FFFFFF',
+    '#C8BFE6',
+    '#A0A0A0'
+];
+const demiboy = [
+    '#7F7F7F',
+    '#C4C4C4',
+    '#9DD7EA',
+    '#FFFFFF'
+];
+const demigirl = [
+    '#7F7F7F',
+    '#C4C4C4',
+    '#FDADC8',
+    '#FFFFFF'
+];
+
+
 const colorSchemes = [
     randomColors,
     progressPride,
@@ -138,7 +180,11 @@ const colorSchemes = [
     bi,
     pan,
     ace,
-    aromantic
+    aromantic,
+    agender,
+    aroace,
+    cupioromantic,
+    demiboy
 ];
 
 
@@ -432,6 +478,119 @@ function drawMatrix() {
             }
             else if (currentrow > (rows/5)*4) {
                 ctx.fillStyle = aromantic[4];
+            }
+        }
+
+
+        else if (pride == "10") {
+            if (currentrow <= (rows/7)) {
+                ctx.fillStyle = agender[0];
+            }
+            else if (currentrow <= (rows/7)*2) {
+                ctx.fillStyle = agender[1];
+            }
+            else if (currentrow <= (rows/7)*3) {
+                ctx.fillStyle = agender[2];
+            }
+            else if (currentrow <= (rows/7)*4) {
+                ctx.fillStyle = agender[3];
+            }
+            else if (currentrow <= (rows/7)*5) {
+                ctx.fillStyle = agender[2];
+            }
+            else if (currentrow <= (rows/7)*6) {
+                ctx.fillStyle = agender[1];
+            }
+            else if (currentrow > (rows/7)*6) {
+                ctx.fillStyle = agender[0];
+            }
+        }
+
+
+        else if (pride == "11") {
+            if (currentrow <= (rows/5)) {
+                ctx.fillStyle = aroace[0];
+            }
+            else if (currentrow <= (rows/5)*2) {
+                ctx.fillStyle = aroace[1];
+            }
+            else if (currentrow <= (rows/5)*3) {
+                ctx.fillStyle = aroace[2];
+            }
+            else if (currentrow <= (rows/5)*4) {
+                ctx.fillStyle = aroace[3];
+            }
+            else if (currentrow <= (rows/5)*5) {
+                ctx.fillStyle = aroace[4];
+            }
+        }
+
+
+        else if (pride == "12") {
+            if (currentrow <= (rows/5)) {
+                ctx.fillStyle = cupioromantic[0];
+            }
+            else if (currentrow <= (rows/5)*2) {
+                ctx.fillStyle = cupioromantic[1];
+            }
+            else if (currentrow <= (rows/5)*3) {
+                ctx.fillStyle = cupioromantic[2];
+            }
+            else if (currentrow <= (rows/5)*4) {
+                ctx.fillStyle = cupioromantic[3];
+            }
+            else if (currentrow <= (rows/5)*5) {
+                ctx.fillStyle = cupioromantic[4];
+            }
+        }
+
+
+        else if (pride == "13") {
+            if (currentrow <= (rows/7)) {
+                ctx.fillStyle = demiboy[0];
+            }
+            else if (currentrow <= (rows/7)*2) {
+                ctx.fillStyle = demiboy[1];
+            }
+            else if (currentrow <= (rows/7)*3) {
+                ctx.fillStyle = demiboy[2];
+            }
+            else if (currentrow <= (rows/7)*4) {
+                ctx.fillStyle = demiboy[3];
+            }
+            else if (currentrow <= (rows/7)*5) {
+                ctx.fillStyle = demiboy[2];
+            }
+            else if (currentrow <= (rows/7)*6) {
+                ctx.fillStyle = demiboy[1];
+            }
+            else if (currentrow > (rows/7)*6) {
+                ctx.fillStyle = demiboy[0];
+            }
+        }
+
+
+        else if (pride == "14") {
+            if (currentrow <= (rows/7)) {
+                ctx.fillStyle = demigirl[0];
+            }
+            else if (currentrow <= (rows/7)*2) {
+                ctx.fillStyle = demigirl[1];
+            }
+            else if (currentrow <= (rows/7)*3) {
+                ctx.fillStyle = demigirl[2];
+            }
+            else if (currentrow <= (rows/7)*4) {
+                ctx.fillStyle = demigirl[3];
+            }
+            else if (currentrow <= (rows/7)*5) {
+                ctx.fillStyle = demigirl[2];
+            }
+            else if (currentrow <= (rows/7)*6) {
+                ctx.fillStyle = demigirl[1];
+            }
+            else if (currentrow > (rows/7)*6) {
+                ctx.fillStyle = demigirl[0];
             }
         }
 
